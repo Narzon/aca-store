@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<title>Essential Pharmaceuticals</title>
+<link href="StyleSheet.css" rel="stylesheet" type="text/css">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
 </head>
-<body>
-     <script src="products.js"></script>    
+<body onclick="activityDetected()">
+    <h1 onclick="resetCat();loadPage();">Essential Pharmaceuticals</h1>
+    <p id="statusbar"></p>
+    <button type="button" onclick="showCart()">Show Cart</button>
+    <form action="#" onsubmit="loadPage();return false">
+        <br>
+        <input type="text" name="Search" placeholder="Search products" id="searchbox">
+        <button type="submit"> Go </button>    
+    </form>
+    <label for="catSelect">Choose a category:</label>
+    <select id="catSelect">
+        <option value="">--Choose--</option>
+        <option value="food">Food</option>
+        <option value="electronics">Electronics</option>
+        <option value="sporting">Sporting</option>
+    </select>
+    <br><br><br><br>
+    <div id="currentPage"></div>
+    <script src="products.js"></script>    
     <script src="index.js"></script>   
 </body>
 </html>

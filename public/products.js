@@ -1,3 +1,4 @@
+
 const products = [{
     "_id": 1,
     "name": "Body Luxuries Sweet Lavender Hand Sanitizer",
@@ -219,3 +220,4 @@ const products = [{
     }
   ]
   }];
+
