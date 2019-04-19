@@ -22,13 +22,15 @@ let removeItem = (i) => {
 //define function to add a product to cart based on its passed in ID, and add its value to the cart total
 let addToCart = (id) => {
     let cart = convertStringsArrays(sessionStorage.getItem('myCart'))
+    let quantity = document.getElementById("quantity"+ id)
+    console.log("quantity is " + quantity.value)
     if (cart[0] === "") {
-        cart[0] = (products[id - 1].name + "  - " + products[id - 1].price)
+        cart[0] = ("" + quantity.value + "x " + products[id - 1].name + "  - $" + (Number(products[id - 1].price.slice(1)) * Number(quantity.value)).toFixed(2))
     } else {
-        cart.push(products[id - 1].name + "  - " + products[id - 1].price)
+        cart.push("" + quantity.value + "x " + products[id - 1].name + "  - $" + (Number(products[id - 1].price.slice(1)) * Number(quantity.value)).toFixed(2))
     }
     let cartValue = Number(sessionStorage.getItem('cartValue'))
-    cartValue += Number(products[id - 1].price.substring(1))
+    cartValue += (Number(products[id - 1].price.substring(1)) * Number(quantity.value))
     sessionStorage.setItem('myCart', convertStringsArrays(cart));
     sessionStorage.setItem('cartValue', "" + cartValue);
     //empty status bar

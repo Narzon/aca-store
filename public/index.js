@@ -21,24 +21,28 @@ let loadPage = () => {
         sessionStorage.setItem('cartValue', '');
     }
     let newStr = ""
+    let tenOptions = "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>"
     if (searchTerm) {
         for (let i = 0; i < products.length; i++) {
             let product = products[i]
             if (product.name.includes(searchTerm) || product.description.includes(searchTerm)) {
-                newStr += `<div> ${product.name} - ${product.price} <br><img src=${product.imgUrl} onclick="showDescription(${product._id})"></img>` + `<br><button type="button" onclick="addToCart(${product._id})"> Add to Cart </button></div>`
+                newStr += `<div> ${product.name} - ${product.price} <br><img src=${product.imgUrl} onclick="showDescription(${product._id})"></img>` + `<br><button type="button" onclick="addToCart(${product._id})"> Add to Cart </button> <select id="quantity">${tenOptions}</select></div>`
             }
+        }
+        if (newStr === "") {
+            newStr = "<h3>No results founds</h3>"
         }
     } else if (catSelect) {
         for (let i = 0; i < products.length; i++) {
             let product = products[i]
             if (product.category === catSelect) {
-                newStr += `<div> ${product.name} - ${product.price} <br><img src=${product.imgUrl} onclick="showDescription(${product._id})"></img>` + `<br><button type="button" onclick="addToCart(${product._id})"> Add to Cart </button></div>`
+                newStr += `<div> ${product.name} - ${product.price} <br><img src=${product.imgUrl} onclick="showDescription(${product._id})"></img>` + `<br><button type="button" onclick="addToCart(${product._id})"> Add to Cart </button> <select id="quantity">${tenOptions}</select></div>`
             }
         }
     } else {
         for (let i = 0; i < products.length; i++) {
             let product = products[i]
-            newStr += `<div> ${product.name} - ${product.price} <br><img src=${product.imgUrl} onclick="showDescription(${product._id})"></img>` + `<br><button type="button" onclick="addToCart(${product._id})"> Add to Cart </button></div>`
+            newStr += `<div> ${product.name} - ${product.price} <br><img src=${product.imgUrl} onclick="showDescription(${product._id})"></img>` + `<br><button type="button" onclick="addToCart(${product._id})"> Add to Cart </button> <select id="quantity${product._id}">${tenOptions}</select></div>`
         }
     }
     //place products in container to display all products in a grid
