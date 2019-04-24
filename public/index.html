@@ -25,10 +25,20 @@
         <option value="electronics">Electronics</option>
         <option value="sporting">Sporting</option>
     </select>
-    <br><br><br><br>
+    <br><br><br>
+    <button type="button" onclick="createProduct()">Create Product (ADMINS ONLY)</button><br>
+    <br>
     <div id="currentPage"></div>
     <script src="products.js"></script>    
     <script src="index.js"></script>
-    <script src="shopCart.js"></script>   
+    <script src="shopCart.js"></script>
+    <script src="signUp.js"></script>
+    <script src="submitOrder.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_7wnltlGTVgiOXe4IHK9bE");
+        })();
+    </script>   
 </body>
 </html>
